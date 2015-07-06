@@ -1,0 +1,15 @@
+{
+  "name": "timeTracking",
+  "version": "0.0.1",
+  "dependencies": {
+    "es5-shim": "~3.1.0",
+    "animate.css": "~3.2.0",
+    "lodash": "~3.9.3",
+    "normalize.css": "~3.0.2"
+  },
+  "devDependencies": {
+    "susy": "~2.2.2",
+    "breakpoint-sass": "~2.5.0"
+  },
+  "appPath": "./webapp"
+}
