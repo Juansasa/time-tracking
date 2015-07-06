@@ -50,7 +50,7 @@ function browserSyncInit(baseDir, files, browser) {
     browserSync(options);
 }
 
-gulp.task('serve', ['inject:watch'], function() {
+gulp.task('serve', ['inject:watch', 'watch'], function() {
     browserSyncInit([
         config.serve,
         config.webapp

@@ -32,10 +32,15 @@ function injectHelper() {
         .pipe(gulp.dest(config.serve));
 }
 
-gulp.task('inject',['react', 'styles'], function() {
+gulp.task('inject:html', function() {
     return injectHelper();
 });
 
+
+gulp.task('inject', function() {
+    return runSequence(['react', 'styles'], injectHelper);
+});
+
 gulp.task('inject:watch', ['react:watch', 'styles'], function() {
-    return injectHelper();
+    return runSequence(['react:watch', 'styles'], injectHelper);
 });
