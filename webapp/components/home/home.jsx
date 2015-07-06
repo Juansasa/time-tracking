@@ -5,7 +5,7 @@ var Home = React.createClass({
   render: function() {
 
     return (
-      <div className="hero-unit">
+      <div className="home">
         <h1>'Allo, 'Allo!</h1>
         <p>You now have</p>
         <ul>
