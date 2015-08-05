@@ -1,9 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    react = require('gulp-react'),
     config = require('./config')(),
-    runSequence = require('run-sequence'),
     reactify = require('reactify'),
     browserify = require('browserify'),
     watchify = require('watchify'),
@@ -20,7 +18,7 @@ function scripts(watch) {
         fullPaths: watch
     });
     if (watch) {
-        bundler = watchify(bundler)
+        bundler = watchify(bundler);
     }
 
     bundler.transform(reactify);

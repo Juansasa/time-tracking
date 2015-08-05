@@ -4,8 +4,7 @@ var gulp = require('gulp'),
     config = require('./config')(),
     util = require('util'),
     browserSync = require('browser-sync'),
-    middleware = require('./proxy'),
-    runSequence = require('run-sequence');
+    middleware = require('./proxy');
 
 function browserSyncInit(baseDir, files, browser) {
     browser = browser === undefined ? 'default' : browser;
