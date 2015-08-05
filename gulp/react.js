@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     config = require('./config')(),
-    reactify = require('reactify'),
+    babelify = require('babelify'),
     browserify = require('browserify'),
     watchify = require('watchify'),
     source = require('vinyl-source-stream');
@@ -17,11 +17,12 @@ function scripts(watch) {
         packageCache: {}, // required for watchify
         fullPaths: watch
     });
+
     if (watch) {
         bundler = watchify(bundler);
     }
 
-    bundler.transform(reactify);
+    bundler.transform(babelify);
 
     rebundle = function() {
         var stream = bundler.bundle();

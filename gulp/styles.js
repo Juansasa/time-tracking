@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var config = require('./config')();
 var wiredep = require('wiredep').stream;
 var $ = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
 
 //
 // Import and compile SCSS files to CSS. The order of files is assumed to be
@@ -15,7 +14,6 @@ var runSequence = require('run-sequence');
 //
 
 var sassCompilerOptions = {
-    includePaths: require('node-bourbon').includePaths, // For bourbon-libsass support
     style: 'expanded'
 };
 
