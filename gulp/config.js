@@ -7,7 +7,6 @@ module.exports = function() {
         assets = appPath + '/assets',
         bowerDir = './bower_components',
         serveDir = tmp,
-        unittestDir = './unit-tests',
         config = {
             webapp: appPath,
             tmp: tmp,
@@ -39,7 +38,6 @@ module.exports = function() {
 
             jsx: {
                 files: [
-                    // ordering of modules is handled by angular-filesort plugin
                     tmp + '/**/*.js'
                 ],
                 main:
@@ -60,11 +58,6 @@ module.exports = function() {
 
             misc: {
                 files: [appPath + '/*.{ico,txt}', appPath + '/.htaccess']
-            },
-
-            karmaconfig: {
-                dir: unittestDir,
-                configfile: unittestDir + '/karma.conf.js',
             },
 
             proxies: [{

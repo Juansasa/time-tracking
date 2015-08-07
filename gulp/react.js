@@ -30,6 +30,7 @@ function scripts(watch) {
             console.error(err.toString());
             this.emit('end');
         });
+        
         stream = stream.pipe(source('app.js'))
             .pipe(gulp.dest(config.jsx.dest));
 
