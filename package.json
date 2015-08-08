@@ -41,6 +41,7 @@
     "jshint-stylish": "^1.0.0",
     "main-bower-files": "^2.5.0",
     "proxy-middleware": "^0.11.0",
+    "reactify": "^1.1.1",
     "require-dir": "^0.1.0",
     "run-sequence": "^1.1.2",
     "uglify-save-license": "^0.4.1",

@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     }),
     runSequence = require('run-sequence');
 
-gulp.task('html', ['inject'], function() {
+gulp.task('html', function() {
     var htmlFilter = $.filter('*.html'),
         jsFilter = $.filter('**/*.js'),
         cssFilter = $.filter('**/*.css'),
@@ -68,5 +68,5 @@ gulp.task('clean:prod', function(done) {
 });
 
 gulp.task('build', function() {
-    runSequence(['clean:dev', 'clean:prod'], ['images', 'fonts', 'misc', 'html']);
+    runSequence(['clean:dev', 'clean:prod'], ['images', 'fonts', 'misc', 'inject'], ['html']);
 });
