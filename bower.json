@@ -5,7 +5,8 @@
     "es5-shim": "~3.1.0",
     "animate.css": "~3.2.0",
     "lodash": "~3.9.3",
-    "normalize.css": "~3.0.2"
+    "normalize.css": "~3.0.2",
+    "materialize": "~0.97.0"
   },
   "devDependencies": {
     "breakpoint-sass": "~2.5.0",

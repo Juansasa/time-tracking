@@ -2,12 +2,10 @@
 
 var React = require('react');
 
-var Avatar = React.createClass({
+var Logo = React.createClass({
   render: function() {
     return (
-      <a className="logo" href="#/">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Starbucks_Coffee_Logo.svg/200px-Starbucks_Coffee_Logo.svg.png" alt=""/>
-      </a>
+      <a href="#" className="brand-logo">Logo</a>
     );
   }
 });
@@ -15,10 +13,7 @@ var Avatar = React.createClass({
 var NavButton = React.createClass({
   render: function() {
     return (
-          <li>
-            <i className={this.props.icon}></i>
-            <a href={this.props.href}>{this.props.name}</a>
-          </li>
+          <li><a href={this.props.href}><i className="material-icons left">{this.props.icon}</i>{this.props.name}</a></li>
       );
   }
 });
@@ -26,14 +21,24 @@ var NavButton = React.createClass({
 var Navigation = React.createClass({
   render: function() {
     return (
-        <nav className={this.props.right ? "nav nav-right": "nav"}>
-          <ul>
+          <ul className={this.props.right ? "right hide-on-med-and-down" : "left hide-on-med-and-down"}>
             {this.props.controls.map(function(control) {
               return (<NavButton name={control.name} icon={control.icon} href={control.href}/>)
             })}
           </ul>
-        </nav>
-      )
+      );
+  }
+});
+
+var SideNavigation = React.createClass({
+  render: function() {
+    return (
+          <ul className="side-nav" id="mobile">
+            {this.props.controls.map(function(control) {
+              return (<NavButton name={control.name} icon={control.icon} href={control.href}/>)
+            })}
+          </ul>
+      );
   }
 });
 
@@ -42,44 +47,51 @@ var Navbar = React.createClass({
     return {
       leftNavigation: [{
           name: 'Calendar',
-          icon: 'fa fa-calendar',
+          icon: 'view_column',
           href: '#/calendar'
         },{
           name: 'Collaborators',
-          icon: 'fa fa-group',
+          icon: 'group',
           href: '#/collaborators'
         }, {
           name: 'Projects',
-          icon: 'fa fa-suitcase',
+          icon: 'work',
           href: '#/projects'
         }, {
           name: 'Reports',
-          icon: 'fa fa-list-alt',
+          icon: 'insert_chart',
           href: '#/reports'
         }, {
           name: 'Settings',
-          icon: 'fa fa-cogs',
+          icon: 'settings',
           href: '#/settings'
-      }],
+        }],
 
       rightNavigation: [{
           name: 'Signin',
           href: '#/signin',
-          icon: 'fa fa-sign-in'
+          icon: 'account_circle'
         }, {
           name: 'Signup',
           href: '#/signup',
-          icon: 'fa fa-user'
+          icon: 'check'
       }]
     }
   },
+  componentDidMount: function() {
+      $(".button-collapse").sideNav();
+  },
   render: function() {
     return (
-      <div className="nav-wrapper">
-        <Avatar />
-        <Navigation controls={this.props.leftNavigation} />
-        <Navigation controls={this.props.rightNavigation} right="true"/>
-      </div>
+      <nav>
+        <div className="nav-wrapper teal darken-2">
+          <a href="#" data-activates="mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+          <Logo />
+          <Navigation controls={this.props.leftNavigation} />
+          <Navigation controls={this.props.rightNavigation} right="true"/>
+          <SideNavigation controls={this.props.leftNavigation.concat(this.props.rightNavigation)} />
+        </div>
+      </nav>
     );
   }
 });

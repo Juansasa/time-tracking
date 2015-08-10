@@ -1,47 +1,5 @@
 .nav-wrapper {
-    $navigation-height: 70px;
-    $nav-bg: black;
-    $nav-txt-color: white;
-    height: $navigation-height;
-    background-color: $nav-bg;
-    color: $nav-txt-color;
-    .nav {
-        display: inline-block;
-        clear: both;
-        vertical-align: top;
-        ul {
-        	list-style: none;
-        	padding: 0;
-        	margin: 0;
-        	li {
-        		height: $navigation-height;
-        		min-width: 50px;
-        		display: inline-block;
-        		line-height: $navigation-height;
-        		padding: 0 0.5em;
-        		a {
-        			text-decoration: none;
-        			color: $nav-txt-color;
-        			margin: 10px;
-        		}
-
-        		&:hover {
-        			background-color: lighten($nav-bg, 20%);
-        			cursor: pointer;
-        		}
-        	}
+        .hide-on-med-and-down {
+            margin-left: 100px;
         }
-    }
-    .nav-right {
-        float: right;
-    }
-    .logo {
-    	display: inline-block;
-    	height: $navigation-height;
-    	width: 100px;
-        img {
-            height: $navigation-height - 20px;
-            margin: 10px 50px 0 10px;
-        }
-    }
 }

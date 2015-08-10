@@ -12,7 +12,8 @@ var Collaborators = require('./collaborators/collaborators');
 var Projects = require('./projects/projects');
 var Reports = require('./reports/reports');
 var Settings = require('./settings/settings');
-
+var Signin = require('./authentication/signin');
+var Signup = require('./authentication/signup');
 
 var routes = (
 	<Route name="layout" path="/" handler={Layout}>
@@ -22,6 +23,8 @@ var routes = (
 		<Route name="/projects" handler={Projects}/>
 		<Route name="/reports" handler={Reports}/>
 		<Route name="/settings" handler={Settings}/>
+		<Route name="/signin" handler={Signin}/>
+		<Route name="/signup" handler={Signup}/>
 	</Route>
 );
 

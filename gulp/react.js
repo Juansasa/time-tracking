@@ -11,7 +11,7 @@ function scripts(watch) {
     var bundler, rebundle;
     bundler = browserify({
         entries: [config.jsx.main],
-        extensions: ['.jsx'],
+        extensions: ['.jsx','.js'],
         debug: true,
         cache: {}, // required for watchify
         packageCache: {}, // required for watchify

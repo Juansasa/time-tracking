@@ -4,6 +4,9 @@ var gulp = require('gulp'),
     config = require('./config')(),
     util = require('util'),
     browserSync = require('browser-sync'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
+    }),
     middleware = require('./proxy');
 
 function browserSyncInit(baseDir, files, browser) {
@@ -49,7 +52,14 @@ function browserSyncInit(baseDir, files, browser) {
     browserSync(options);
 }
 
-gulp.task('serve', ['inject:watch', 'watch'], function() {
+gulp.task('fonts', function() {
+    return gulp.src(config.fonts.files)
+        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+        .pipe($.flatten())
+        .pipe(gulp.dest(config.fonts.dev));
+});
+
+gulp.task('serve', ['fonts', 'inject:watch', 'watch'], function() {
     browserSyncInit([
         config.serve,
         config.webapp
