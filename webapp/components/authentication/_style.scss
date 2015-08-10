@@ -1,2 +1,11 @@
 .signin {
+	@include center(800px, 100px);
+	margin-top: 10%;
+
+	form {
+		margin: 50px;
+		button {
+			float: right;
+		}
+	}
 }
